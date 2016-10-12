@@ -1,0 +1,25 @@
+<div>
+  <h3>{{ playlist.name }}</h3>
+  <songs-directive songs=playlist.songs></songs-directive>
+
+  <small ng-hide="playlist.songs.length">No songs.</small>
+  <hr>
+  <div ng-controller="SongChooseCtrl" class="well">
+    <form class="form-horizontal" novalidate name="songSelect" ng-submit="addIt()">
+      <fieldset>
+        <legend>Add to Playlist</legend>
+        <div class="form-group">
+          <label for="song" class="col-xs-2 control-label">Song</label>
+          <div class="col-xs-10">
+            <select class="form-control" name="song" ng-options="song as song.name for song in songs" ng-model="toAdd" required></select>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-xs-10 col-xs-offset-2">
+            <button type="submit" class="btn btn-success" ng-disabled="songSelect.$invalid">Add Song</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>

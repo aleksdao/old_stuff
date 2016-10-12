@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{% for key in Object.keys(everything) %}
+
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">{{key}}<span class="caret"></span></button>
+    <ul class="dropdown-menu">
+    {% for elem in everything[key] %}
+      <li><a href="#">{{elem.name}}</a></li>
+    {% endfor %}
+    </ul>
+  </div>
+ {% endfor %}
+
+{% endblock %}
+

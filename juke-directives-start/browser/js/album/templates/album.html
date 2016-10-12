@@ -1,0 +1,7 @@
+<div class="album">
+  <p>
+    <h3>{{ album.name }}</h3>
+    <img ng-src="{{ album.imageUrl }}" class="img-thumbnail">
+  </p>
+  <songs-directive songs=album.songs></songs-directive>
+</div>

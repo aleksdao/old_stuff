@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Juke</title>
+    <link href="/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="/bootstrap-dark.css" rel="stylesheet" />
+    <link href="/style.css" rel="stylesheet" />
+    <script src="/angular/angular.js" defer></script>
+    <script src="/angular-ui-router/release/angular-ui-router.js" defer></script>
+    <script src="/angular-messages/angular-messages.js" defer></script>
+    <script src="/js/module.js" defer></script>
+    <script src="/js/sidebar/sidebar.directives.js" defer></script>
+    <script src="/js/album/albums.directives.js" defer></script>
+    <script src="/js/album/album.controllers.js" defer></script>
+    <script src="/js/album/album.factory.js" defer></script>
+    <script src="/js/album/album.states.js" defer></script>
+    <script src="/js/player/player.directives.js" defer></script>
+    <script src="/js/player/player.factory.js" defer></script>
+    <script src="/js/sidebar/sidebar.controller.js" defer></script>
+    <script src="/js/artist/artist.controllers.js" defer></script>
+    <script src="/js/artist/artist.factory.js" defer></script>
+    <script src="/js/artist/artist.states.js" defer></script>
+    <script src="/js/song/songs.directives.js" defer></script>
+    <script src="/js/song/song.factory.js" defer></script>
+    <script src="/js/song/song.controllers.js" defer></script>
+    <script src="/js/playlist/playlist.states.js" defer></script>
+    <script src="/js/playlist/playlist.factory.js" defer></script>
+    <script src="/js/playlist/playlist.controllers.js" defer></script>
+  </head>
+  <body ng-app="juke">
+    <div id="main" class="container-fluid">
+
+      <div class="col-xs-2">
+        <sidebar ng-controller="SidebarCtrl">
+          <sidebar-directive></sidebar-directive>
+        </sidebar>
+      </div>
+
+      <div class="col-xs-10">
+        <ui-view></ui-view>
+      </div>
+
+      <footer>
+        <player-directive></player-directive>
+      </footer>
+
+    </div>
+  </body>
+</html>

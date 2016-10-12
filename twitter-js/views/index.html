@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  
+  <div class="page-header">
+    <h1>Welcome to Twitter.js!</h1>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-3">
+      <img src="https://pbs.twimg.com/profile_images/2450268678/olxp11gnt09no2y2wpsh_normal.jpeg"><br>
+      <b>Your Name</b><br>
+      100 followers
+    </div>
+    <div class="col-md-9" id="tweetList">
+      <!-- display tweets here -->
+      	<h1>All Tweets</h1>
+
+
+      	  {% if showForm %}
+      	  <form action="/tweets" method="POST">
+      	    <label for="name_field">Name:</label>
+      	    	{% if user %}
+      	    		<input name="name" type="text" id="name_field" value="{{user}}"/>
+      	    	{% else %}
+      	    		<input name="name" type="text" id="name_field" value= "" />
+  	    		{% endif %}
+      	    <label for="text_field">Text:</label>
+      	    <input name="text" type="text" id="text_field" style="width: 350px;" />
+
+      	    <input type="submit" value="Submit" />
+      	  </form>
+      		{% endif %}
+      <br>
+      <ul style="list-style: none;">
+      <div id="new" style="display:none;">
+      {% include "./tweet.html" with {tweet: {name: "NAME", text: "TWEET", id: "ID"}} %}
+    	</div>
+			{% for tweet in tweets %}
+				{% include "./tweet.html" %}
+			{% endfor %}
+			</ul>
+      
+    </div>
+  </div>
+    
+{% endblock %}
+Raw
